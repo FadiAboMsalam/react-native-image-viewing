@@ -1,4 +1,6 @@
-# react-native-image-viewing
+# react-native-image-viewing-rtl
+
+## is based on react-native-image-viewing but with minor fix to support RTL
 
 > React Native modal component for viewing images as a sliding gallery.
 
@@ -53,7 +55,7 @@ const [visible, setIsVisible] = useState(false);
   imageIndex={0}
   visible={visible}
   onRequestClose={() => setIsVisible(false)}
-/>
+/>;
 ```
 
 #### [See Example](https://github.com/jobtoday/react-native-image-viewing/blob/master/example/App.tsx#L62-L80)
