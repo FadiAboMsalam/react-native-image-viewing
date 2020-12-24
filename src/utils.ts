@@ -13,7 +13,9 @@ import {
   PanResponderGestureState,
   PanResponderInstance,
   NativeTouchEvent,
+  I18nManager
 } from "react-native";
+
 import { Dimensions, Position } from "./@types";
 
 type CacheStorageItem = { key: string; value: any };
@@ -89,7 +91,7 @@ export const getImageStyles = (
 
 export const getImageTranslate = (
   image: Dimensions,
-  screen: Dimensions
+  screen: Dimensions,
 ): Position => {
   const getTranslateForAxis = (axis: "x" | "y"): number => {
     const imageSize = axis === "x" ? image.width : image.height;
@@ -97,9 +99,9 @@ export const getImageTranslate = (
 
     return (screenSize - imageSize) / 2;
   };
-
+  const rtlFactor = I18nManager.isRTL? -1 : 1;
   return {
-    x: getTranslateForAxis("x"),
+    x: rtlFactor * getTranslateForAxis("x"),
     y: getTranslateForAxis("y"),
   };
 };
